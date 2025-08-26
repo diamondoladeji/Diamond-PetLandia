@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build PetLandia",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "*.cpp",
+                "-std=c++11",
+                "-o",
+                "main"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Compile all cpp files in the project"
+        },
+        {
+            "label": "Run PetLandia",
+            "type": "shell",
+            "command": "./main",
+            "dependsOn": "Build PetLandia",
+            "problemMatcher": [],
+            "detail": "Run the compiled executable"
+        }
+    ]
+}

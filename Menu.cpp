@@ -9,6 +9,37 @@
 #include <limits>
 using namespace std;
 
+#include "Menu.h"
+
+int main() {
+    Menu menu;
+    menu.printMenu();
+
+    int choice;
+    std::cin >> choice;
+
+    switch(choice) {
+        case 1:
+            menu.createPet();
+            break;
+        case 2: {
+            Pet* pet = menu.loadGame();
+            if (pet != nullptr) {
+                menu.playGame(pet);
+            }
+            break;
+        }
+        case 3:
+            std::cout << "Goodbye!\n";
+            break;
+        default:
+            std::cout << "Invalid choice!\n";
+            break;
+    }
+
+    return 0;
+}
+
 void Menu::printMenu() {
     cout << "---------------------------------------------------------------" << endl;
     cout << "              * Welcome to Diamond's PetLandia! *" << endl;
